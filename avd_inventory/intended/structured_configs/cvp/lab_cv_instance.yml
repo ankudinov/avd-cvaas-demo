@@ -1,0 +1,27 @@
+---
+cvp_devices:
+  - fqdn: leaf1
+    parentContainerName: pod1
+    configlets:
+      - AVD_leaf1
+  - fqdn: leaf2
+    parentContainerName: pod1
+    configlets:
+      - AVD_leaf2
+  - fqdn: spine1
+    parentContainerName: AVD_SPINES
+    configlets:
+      - AVD_spine1
+  - fqdn: spine2
+    parentContainerName: AVD_SPINES
+    configlets:
+      - AVD_spine2
+cvp_containers:
+  AVD_FABRIC:
+    parentContainerName: Tenant
+  AVD_LEAFS:
+    parentContainerName: AVD_FABRIC
+  AVD_SPINES:
+    parentContainerName: AVD_FABRIC
+  pod1:
+    parentContainerName: AVD_LEAFS
