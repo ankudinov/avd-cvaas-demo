@@ -35,6 +35,7 @@
 - [VRF Instances](#vrf-instances)
   - [VRF Instances Summary](#vrf-instances-summary)
   - [VRF Instances Device Configuration](#vrf-instances-device-configuration)
+- [EOS CLI](#eos-cli)
 
 ## Management
 
@@ -487,4 +488,16 @@ route-map RM-CONN-2-BGP permit 10
 ```eos
 !
 vrf instance MGMT
+```
+
+## EOS CLI
+
+```eos
+!
+sflow sample dangerous 1
+sflow polling-interval 1
+sflow destination 127.0.0.1
+sflow source-interface Management0
+sflow run
+
 ```

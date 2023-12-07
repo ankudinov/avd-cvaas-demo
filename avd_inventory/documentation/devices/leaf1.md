@@ -50,6 +50,7 @@
 - [Virtual Source NAT](#virtual-source-nat)
   - [Virtual Source NAT Summary](#virtual-source-nat-summary)
   - [Virtual Source NAT Configuration](#virtual-source-nat-configuration)
+- [EOS CLI](#eos-cli)
 
 ## Management
 
@@ -836,4 +837,16 @@ vrf instance Tenant_A_OP_Zone
 ```eos
 !
 ip address virtual source-nat vrf Tenant_A_OP_Zone address 10.255.1.3
+```
+
+## EOS CLI
+
+```eos
+!
+sflow sample dangerous 1
+sflow polling-interval 1
+sflow destination 127.0.0.1
+sflow source-interface Management0
+sflow run
+
 ```

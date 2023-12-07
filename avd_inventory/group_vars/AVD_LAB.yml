@@ -53,3 +53,10 @@ daemon_terminattr:
   smashexcludes: "ale,flexCounter,hardware,kni,pulse,strata"
   ingestexclude: "/Sysdb/cell/1/agent,/Sysdb/cell/2/agent"
   disable_aaa: True
+
+eos_cli: |
+  sflow sample dangerous 1
+  sflow polling-interval 1
+  sflow destination 127.0.0.1
+  sflow source-interface Management0
+  sflow run

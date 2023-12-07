@@ -307,6 +307,17 @@ router_bfd:
 ip_igmp_snooping:
   globally_enabled: true
 ip_virtual_router_mac_address: 00:1c:73:00:dc:01
+eos_cli: 'sflow sample dangerous 1
+
+  sflow polling-interval 1
+
+  sflow destination 127.0.0.1
+
+  sflow source-interface Management0
+
+  sflow run
+
+  '
 vxlan_interface:
   Vxlan1:
     description: leaf2_VTEP

@@ -80,7 +80,8 @@ cvp_configlets:
     import evpn 10:10\n      route-target export evpn 10:10\n      router-id 192.0.255.3\n
     \     neighbor 10.255.251.1 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
     connected\n!\nmanagement api http-commands\n   protocol https\n   no shutdown\n
-    \  !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+    \  !\n   vrf MGMT\n      no shutdown\n!\nsflow sample dangerous 1\nsflow polling-interval
+    1\nsflow destination 127.0.0.1\nsflow source-interface Management0\nsflow run\n\n!\nend\n"
   AVD_leaf2: "!RANCID-CONTENT-TYPE: arista\n!\ndaemon TerminAttr\n   exec /usr/bin/TerminAttr
     -cvaddr=www.cv-staging.corp.arista.io:443 -cvauth=token-secure,/mnt/flash/cv-onboarding-token
     -cvvrf=MGMT -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata
@@ -162,7 +163,8 @@ cvp_configlets:
     import evpn 10:10\n      route-target export evpn 10:10\n      router-id 192.0.255.4\n
     \     neighbor 10.255.251.0 peer group MLAG-IPv4-UNDERLAY-PEER\n      redistribute
     connected\n!\nmanagement api http-commands\n   protocol https\n   no shutdown\n
-    \  !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+    \  !\n   vrf MGMT\n      no shutdown\n!\nsflow sample dangerous 1\nsflow polling-interval
+    1\nsflow destination 127.0.0.1\nsflow source-interface Management0\nsflow run\n\n!\nend\n"
   AVD_spine1: "!RANCID-CONTENT-TYPE: arista\n!\ndaemon TerminAttr\n   exec /usr/bin/TerminAttr
     -cvaddr=www.cv-staging.corp.arista.io:443 -cvauth=token-secure,/mnt/flash/cv-onboarding-token
     -cvvrf=MGMT -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata
@@ -200,7 +202,9 @@ cvp_configlets:
     route-map RM-CONN-2-BGP\n   !\n   address-family evpn\n      neighbor EVPN-OVERLAY-PEERS
     activate\n   !\n   address-family ipv4\n      no neighbor EVPN-OVERLAY-PEERS activate\n
     \     neighbor IPv4-UNDERLAY-PEERS activate\n!\nmanagement api http-commands\n
-    \  protocol https\n   no shutdown\n   !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+    \  protocol https\n   no shutdown\n   !\n   vrf MGMT\n      no shutdown\n!\nsflow
+    sample dangerous 1\nsflow polling-interval 1\nsflow destination 127.0.0.1\nsflow
+    source-interface Management0\nsflow run\n\n!\nend\n"
   AVD_spine2: "!RANCID-CONTENT-TYPE: arista\n!\ndaemon TerminAttr\n   exec /usr/bin/TerminAttr
     -cvaddr=www.cv-staging.corp.arista.io:443 -cvauth=token-secure,/mnt/flash/cv-onboarding-token
     -cvvrf=MGMT -disableaaa -smashexcludes=ale,flexCounter,hardware,kni,pulse,strata
@@ -238,7 +242,9 @@ cvp_configlets:
     route-map RM-CONN-2-BGP\n   !\n   address-family evpn\n      neighbor EVPN-OVERLAY-PEERS
     activate\n   !\n   address-family ipv4\n      no neighbor EVPN-OVERLAY-PEERS activate\n
     \     neighbor IPv4-UNDERLAY-PEERS activate\n!\nmanagement api http-commands\n
-    \  protocol https\n   no shutdown\n   !\n   vrf MGMT\n      no shutdown\n!\nend\n"
+    \  protocol https\n   no shutdown\n   !\n   vrf MGMT\n      no shutdown\n!\nsflow
+    sample dangerous 1\nsflow polling-interval 1\nsflow destination 127.0.0.1\nsflow
+    source-interface Management0\nsflow run\n\n!\nend\n"
 cvp_topology:
   AVD_FABRIC:
     devices: []
